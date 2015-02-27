@@ -1,0 +1,185 @@
+<!-- 
+<div>
+<map zoom="11" center="[40.74, -74.18]">
+  <marker position="[40.74, -74.18]" />
+  <shape name="circle" radius="400" center="[40.74,-74.18]" radius="4000" />
+  <control name="overviewMap" opened="true" />
+</map>
+<map />
+</div> -->
+
+<!-- <div class="google_map_container" ng-include onload='getLocation()'>
+<ui-gmap-google-map center='map.center' zoom='map.zoom'>
+ <ui-gmap-marker coords="marker.coords"  idkey="marker.id">
+        </ui-gmap-marker>
+</ui-gmap-google-map>
+ 
+<ng-include onload="getLocation()" >
+</ng-include>
+
+<div> -->
+
+<div>
+
+<div ng-include src="googlemap" onload='getLocation()' id="mapp"></div>
+
+
+<div class="container-fluid signup_container" id="scroll-able" data-spy="scroll">
+	<div class="col-md-12">
+	<div class="panel panel-default">
+     <div class="panel-heading">Bike Reservation</div>
+     <div class="panel-body">
+		<form name="bikebookingform" id="bikebookingform">
+			<div class="row">
+				<div class="col-md-4"></div>
+				<div class="input-group input-group-lg bikebookingform_input">
+					
+					<label for="zipcode">Zipcode:</label>
+					<input type="text" class="form-control" placeholder="zipcode"
+						name="zipcode" size="50" ng-model="zipcode"
+						ng-minlength="5" ng-maxlength="5" />
+
+					<div class="error-container"
+						ng-show="bikebookingform.zipcode.$dirty && bikebookingform.zipcode.$invalid">
+						<small class="errorbox"
+							ng-show="bikebookingform.zipcode.$error.minlength">Your
+							zipcode is required to be at least 5 characters</small> <small
+							class="errorbox"
+							ng-show="bikebookingform.zipcode.$error.maxlength">Your
+							zipcode cannot be longer than 5 characters</small>
+					</div>
+					
+					
+				</div>
+			</div>
+			
+			<div class="row" >
+				<div class="col-md-4"></div>
+				<div class="input-group bikebookingform_input">
+					<span class="input-group-btn">
+						<button class="btn btn-dark btn-lg" type="button" ng-click="searchMapOnZipCode(zipcode)">Search</button>
+					</span>
+				</div>
+			</div>
+			
+			<div class="row" ng-hide="displayForm" >
+				<div class="col-md-4"></div>
+				<div class="input-group input-group-lg  bikebookingform_input">
+					<input type="location_name" class="form-control" placeholder="Please click on location in map"
+						name="location_name" size="50" ng-model="location_name"
+						required disabled>
+
+				</div>
+			</div>
+			
+			<div class="row" ng-hide="displayForm" >
+				<div class="col-md-4"></div>
+				<div class="input-group input-group-lg  bikebookingform_input">
+					<input type="booking_date" class="form-control" placeholder="Date: "
+						name="booking_date" size="50" ng-model="booking_date"
+						required disabled>
+
+				</div>
+			</div>
+			
+			<div class="row" ng-hide="displayForm">
+				<div class="col-md-4"></div>
+				<div class="input-group input-group-lg  bikebookingform_input col-md-4">
+					        <label for="timefrom">From:</label>
+					        <select id="fromdropdown" class="form-control" data-role="listview" ng-options="time.text for time in timelist track by time.value" ng-model="fromtime" ng-change="unlockToTime(fromtime)">
+								<option value="">From Time</option>
+					        </select>
+				</div>
+			</div>
+			
+			<div class="row" ng-hide="displayForm">
+				<div class="col-md-4"></div>
+				<div class="input-group input-group-lg  bikebookingform_input col-md-4">
+					        <label for="timefrom">To:</label> 
+					        <select id="todropdown" class="form-control" data-role="listview" ng-options="time.text for time in totimelist track by time.value" ng-model="totime" ng-disabled="false" ng-change="checkAvailability(location_id, fromtime, totime)">
+								<option value="">To Time</option>
+					        </select>
+				</div>
+			</div>
+			
+			
+			<div class="row">
+				<div class="col-md-4"></div>
+				<div class="input-group input-group-lg  bikebookingform_input col-md-4">
+					      <input type="hidden" class="form-control" name="location_id" ng-model="location_id">
+				</div>
+			</div>
+			
+			<!-- <div class="row"  ng-hide="displayForm">
+				<div class="col-md-4"></div>
+				<div class="input-group bikebookingform_input">
+					<span class="input-group-btn">
+						<button class="btn btn-default" type="button" ng-click="checkAvailability(location_id, fromtime, totime)">Check Availability</button>
+					</span>
+				</div>
+			</div> -->
+			
+			<div class="showNoBikesAvailable" ng-show="showNoBikesMessage"> 
+				Bikes are not available for the given timeslot on selected location.
+			</div>
+			
+			
+			<div class="row" ng-hide="bikesListShow">
+				<div class="col-md-4"></div>
+				<div class="input-group input-group-lg  bikebookingform_input col-md-4">
+					        <label for="bikelist">Bike Type and Price:</label> 	
+					        <select id="aviailblebikes" class="form-control" data-role="listview" ng-options="bike.bikename+' '+bike.type+'  $'+bike.price for bike in bikeslist track by bike.bike_id" ng-model="bikeid"
+					         ng-disabled="false" ng-change="showConfirmBookingButton()">
+								<option value="">Select Bikes</option>
+					        </select>
+				</div>
+			</div>
+			
+			<div class="row"  ng-hide="bikeBookButtonShow">
+				<div class="col-md-4"></div>
+				<div class="input-group bikebookingform_input">
+					<span class="input-group-btn">
+						<button class="btn btn-dark btn-lg" type="button" ng-click="confirmBooking(location_id, fromtime, totime, bikeid)">Cofirm Booking</button>
+					</span>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-4"></div>
+				<div class="errorbox" style="position:relative;padding-top:1%;padding-left:47%;">
+					<ul>
+						<li ng-repeat="error in bookingform_error track by $index">{{ error }}</li>
+					</ul>
+				</div>
+				<div class="successbox" style="position:relative;padding-top:1%;padding-left:47%;">{{bookingform_success}}</div>
+			</div>
+			<!-- <div class="input-group input-group-lg  register_textbox">
+                            <input type="text" class="form-control" placeholder="Credit Card Number" size="50">
+                          </div> -->
+
+		</form>
+		</div>
+		</div>
+	</div>
+</div>
+
+<script>
+
+function scroll(scrollto){
+	$('html, body').animate({
+        scrollTop: $("#scroll-able").offset().top
+    }, 200);
+}
+
+function resetDropDown(){
+	//$('#todropdown').find('option:first').attr('selected', 'selected');
+	//$('#fromdropdown').find('option:first').attr('selected', 'selected');
+	$('#fromdropdown').get(0).selectedIndex = 0;
+	$('#todropdown').get(0).selectedIndex = 0;
+	$('#aviailblebikes').get(0).selectedIndex = 0;
+}
+
+</script>
+
+</div>
+

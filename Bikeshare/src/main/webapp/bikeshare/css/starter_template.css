@@ -1,0 +1,258 @@
+.body_bg_image {
+	background-image:
+		url("http://sfmta.com/sites/default/files/projects/aep_228b_6_1.jpg");
+	background-size: cover;
+	opacity: .5;
+}
+
+.login_box {
+	padding-bottom: 8%;
+	background-color: #eee
+}
+
+.login_container {
+	background-color: #eee
+}
+
+.username_textbox {
+	padding-top: 1%;
+	padding-bottom: 1%;
+	left: 34%;
+}
+
+.password_textbox {
+	padding-top: 1%;
+	padding-bottom: 1%;
+	left:34%;
+}
+
+.login_button {
+	padding-top: 1%;
+	padding-bottom: 1%;
+	left: 34%;
+}
+
+
+.footer {
+	clear: both;
+	position: relative;
+	margin-top: -3em;
+}
+
+.footer_container {
+	height: 100px;
+	background: black;
+}
+
+.register {
+	padding-top: 2%;
+	margin-left: 74%;
+	color: blue
+}
+
+.register_textbox {
+	padding-top: 2%;
+}
+
+.register_button {
+	padding-top: 5%;
+	padding-bottom: 5%;
+	margin-left: 14%;
+}
+
+
+.errorbox {
+	color: white;
+	font-style: italic;
+	right: 50%;
+}
+
+.errorbox1 {
+	color: red;
+	font-style: italic;
+	margin-left: 40%;
+}
+
+.successbox {
+	color: lawngreen;
+	font-style: normal;
+	font: 18px arial;
+	right: 23%;
+}
+
+.navbar-header,
+.navbar-nav li a {
+    line-height: 150px;
+    height: 70px;
+    padding-top: 0;
+}
+
+.carousel_container {
+	padding-top: 4%;
+}
+
+.signup_container {
+	padding-top: 4%;
+}
+.angular-google-map-container {
+	height: 600px;
+}
+.google_map_container{
+	padding-top: 5%;
+}
+.bikebookingform_input{
+	padding-top: 1%;
+	padding-bottom: 1%;
+}
+.receipt_tabel{
+	width:100%;
+	border: 1px;
+	border-color: black;
+	border-style: solid;
+	border-width:medium;
+}
+.search_button{
+	padding-top: 1%;
+	padding-bottom: 1%;
+	left: 15%;
+	-moz-border-radius: 15px;
+ 	 -webkit-border-radius: 15px;
+  	border: 5px;
+ 	 padding: 5px;
+ 	 text-align: center;
+}
+
+.disable_textbox{
+	padding-top: 1%;
+	padding-bottom: 1%;
+	right-margin: 50%;
+	-moz-border-radius: 15px;
+ 	 -webkit-border-radius: 15px;
+  	border: 5px;
+ 	 padding: 5px;
+}
+
+.enter_zipcode{
+	padding-top: 1%;
+	padding-bottom: 1%;
+	right-margin: 50%
+
+}
+
+.from_time{
+	padding-top: 1%;
+	padding-bottom: 1.5%;
+	left: 3%;
+
+}
+
+.to_time{
+	padding-top: 1%;
+	
+	left: 3%;
+
+}
+
+.bike_list{
+	
+	padding-bottom: 1%;
+	left: 3%;
+}
+
+.confirm_booking_button{
+	padding-top: 1%;
+	padding-bottom: 1%;
+	left: 12%;
+	-moz-border-radius: 15px;
+ 	 -webkit-border-radius: 15px;
+  	border: 5px;
+ 	 padding: 5px;
+	text-align : center;
+}
+
+.text-vertical-center{
+	position: relative;
+	top: -170px;
+}
+
+
+.receipt_container{
+	border-collapse: collapse;
+	border-spacing: 4px;
+	border-top:3px solid #e5eff8;
+	border-right:3px solid #e5eff8;
+	margin:1em auto;
+	background-image: url("../images/black_bike.jpg");
+	/*height: 800px; width: 1280px; */
+	background-size: 100%;
+	padding-top: 10%;
+	padding-bottom: 20%;
+	border-style: solid;
+	/*border-width: thick;*/
+}
+
+
+/*
+.receipt_container tr, td {
+	border: 4px solid #FFFFFF;
+  	padding-top: 10%;
+  	border-style : groove;
+  	font-size:18px;
+  	color:#D0D0D0;
+  	text-align:center;
+  	
+}
+.receipt_container tr{
+	background-color: white;
+	color: white;
+}
+*/
+
+
+
+
+.receipt_row{
+	border: 4px solid #FFFFFF;
+  	padding-top: 10%;
+  	border-style : groove;
+  	font-size:18px;
+  	color:#D0D0D0;
+  	text-align:center;
+}
+
+.panel-body{
+	background:#9999A1;
+}
+
+.panel-heading{
+	text-align:center;
+	font-size: 18px;
+}
+.bookingdetails_container{
+	padding-left: 5%;
+	padding-top:10%;
+}
+.bookingdetails_location{
+	width:30%;
+}
+.bookingdetails_time{
+	width:25%;
+}
+.bookingdetails_bikedetails{
+	width:25%;
+}
+.bookingdetails_bookingtime{
+	width:30%;
+}
+.bookingdetails_cancelbooking{
+	width:30%;
+}
+.bookingdetails_cancelbookingButton{
+	
+}
+.showNoBikesAvailable{
+	color: red;
+	font-style: normal;
+	padding-left: 33%;
+	padding-top: 2%;
+}

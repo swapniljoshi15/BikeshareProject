@@ -1,0 +1,48 @@
+<div class="bookingdetails_container" ng-controller="bookingdetailsController">
+	<div class="col-md-12">
+		<div class="row">
+			<div class="col-md-1">
+			</div>
+			<div class="col-md-10">
+					<table st-safe-src="queue.transactions" st-table="emptyArray" class="table table-striped">
+						<thead>
+						<tr>
+							<th class="bookingdetails_location">Location</th>
+							<th class="bookingdetails_time">Time</th>
+							<th class="bookingdetails_bikedetails">BikeDetails</th>
+							<th class="bookingdetails_bookingtime">Booking Time</th>
+							<th class="bookingdetails_cancelbooking"></th>
+							<!-- <th>email</th> -->
+						</tr>
+						</thead>
+						<tbody ng-hide="isLoading">
+						
+						<tr ng-repeat="row in emptyArray track by $index">
+							<td>{{row.location_name + "," + row.city + "," + row.state + "," + row.zipcode}}</td>
+							<td>{{row.from_hour + ":00 - " + row.to_hour + ":00"}}</td>
+							<td>{{row.bikename+" - " +row.biketype}}</td>
+							<td>{{row.date_of_booking | date}}</td>
+							<td>
+							<button class="btn btn-default bookingdetails_cancelbookingButton" ng-click="cancelBooking(row.transaction_id)" ng-show="row.active_booking && row.booking_status=='RESERVED'"><span style="color:blue">Cancel Booking</span></button>
+							<button class="btn btn-default bookingdetails_cancelbookingButton" ng-click="cancelBooking(row.transaction_id)" ng-show="row.booking_status=='CANCELLED'" disabled><span style="color:red">Cancelled</span></button>
+							<button class="btn btn-default bookingdetails_cancelbookingButton" ng-click="cancelBooking(row.transaction_id)" ng-show="row.booking_status=='RESERVED' && !row.active_booking" disabled><span style="color:green">Completed</span></button>
+							</td>
+							<!-- <td><a ng-href="mailto:{{row.email}}">email</a></td> -->
+						</tr>
+						</tbody>
+						<tfoot>
+							<tr>
+								<td colspan="5" class="text-center">
+									<div st-pagination="" st-items-by-page="itemsByPage" ></div>
+								</td>
+							</tr>
+						</tfoot>
+					</table>
+
+			</div>
+			<div class="col-md-2">
+			</div>
+		</div>
+	</div>
+	
+</div>

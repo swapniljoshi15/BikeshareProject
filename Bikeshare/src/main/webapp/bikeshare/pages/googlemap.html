@@ -1,0 +1,13 @@
+<div class="google_map_container_home">
+<ui-gmap-google-map center='map.center' zoom='map.zoom'>
+ <!-- <ui-gmap-markers models="markers" coords="'coords'" options="'options'" click="'onClicked'" idkey="id" >
+ </ui-gmap-markers> -->
+ 	<ui-gmap-marker ng-repeat="marker in markers" coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id"
+ 	icon="'icon'">
+ 	</ui-gmap-marker> 
+</ui-gmap-google-map>
+ 
+<!-- <ng-include onload="getLocation()" >
+</ng-include> -->
+
+<div>

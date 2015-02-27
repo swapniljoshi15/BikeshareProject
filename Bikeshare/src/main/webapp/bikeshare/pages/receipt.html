@@ -1,0 +1,48 @@
+<div class="receipt_container" ng-controller="receiptController">
+
+	<!-- 	<div class="col-md-12">  -->
+	<div class="row">
+		<div class="col-md-2"></div>
+		<div class="col-md-8">
+			<header>
+				<br> <br>
+				<h1 style="color:white" align="center">Bike Reservation Receipt</h1>
+			</header>
+			<table class="receipt_tabel">
+			
+				<tr>
+					<th></th>
+					<th></th>
+				</tr>
+					<tr class="receipt_row">
+						<td><strong>Booking Id</strong></td>
+						<td><strong>{{ booking_id_receipt }}</strong></td>
+					</tr>
+					<tr class="receipt_row">
+						<td><strong>Location</strong></td>
+						<td><strong>{{ location_name_receipt }}</strong></td>
+					</tr>
+					<tr class="receipt_row">
+						<td><strong>Time Slot</strong></td>
+						<td><strong>{{ time_receipt }}</strong></td>
+					</tr>
+					<tr class="receipt_row">
+						<td><strong>Bike Details</strong></td>
+						<td><strong>{{ bike_details }}</strong></td>
+					</tr>
+					<tr class="receipt_row">
+						<td><strong>Amount Paid</strong></td>
+						<td>
+						<strong ng-hide="freeRideFlag">{{ price }}</strong>
+						<strong ng-show="freeRideFlag">Redeemed credits. Enjoy Free Ride !!!</strong>
+						</td>
+					</tr>
+					
+
+			</table>
+		</div>
+
+		<div class="col-md-2"></div>
+
+	</div>
+</div>

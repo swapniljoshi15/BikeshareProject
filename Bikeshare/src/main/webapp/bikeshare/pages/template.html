@@ -1,0 +1,386 @@
+
+<div>
+
+
+
+<!-- Header -->
+    <div id="top" class="header">
+        <div class="text-vertical-center">
+            <h1>Spartan Bike Share</h1>
+            <h3>San Jose State University</h3>
+            <br>
+            <a href="#contact" class="btn btn-dark btn-lg">Our Locations</a>
+        </div>
+    </div>
+
+<!--  Login -->
+ 
+ 	<section id="login" class="login"> 
+    		<div class="">
+			<div class="login_box" ng-controller="loginformcontroller">
+				<h2 align="center" style="padding-top:7%; margin-top: 0px;">Login</h2>
+				<hr class="small">
+					 <div class="row text-center">
+					  
+					 </div>
+					 
+								<form name="loginform">
+								<div class="row">
+								 	<div class="col-md-4 username_textbox">
+								 	<br>
+										<input type="text" class="form-control" placeholder="Username" name="loginform_username"
+											ng-model="loginform_username" size="20" required
+											autofocus />
+											<div class="error-container"
+											 		ng-show="loginform.loginform_username.$dirty && loginform.loginform_username.$invalid">
+												<small class="errorbox1"
+												ng-show="loginform.loginform_username.$error.required">Username is required</small> 
+											</div>
+									</div>
+										
+								</div>
+								<br>
+								<div class="row">
+									<div class="col-md-4 password_textbox">
+									
+										<input type="password" class="form-control" placeholder="Password" name="loginform_password"
+											ng-model="loginform_password"  required/>
+											
+										<div class="error-container"
+									 		ng-show="loginform.loginform_password.$dirty && loginform.loginform_password.$invalid">
+											<small class="errorbox1"
+											ng-show="loginform.loginform_password.$error.required">Password is required</small> 
+										</div>
+										
+									</div>
+									
+								</div>
+									<br>
+									
+									<!-- Button -->
+									<div class="row">
+								<div class="col-md-4 login_button">
+										<button class="btn btn-lg btn-primary btn-block" type="button" ng-disabled="loginform.$invalid"
+											ng-click="loginform_getAuthenticated()">Login</button>
+
+									</div>
+									</div>
+									
+								<!--  		<div class="col-lg-4 rememberme_checkbox">
+											<input type="checkbox" value="None" id="squaredFour" name="check" />
+											<label for="squaredFour"><span></span>Remember Me</label>
+										</div>
+									
+									-->
+
+										<div class="col-md-4 register" style="margin-left:38%">
+										<div class="row">
+										<a href="#signup">Don't have an account with us? Sign Up Now !!!</a>
+									</div>
+									<br>
+									<br>
+									<br>
+									
+									</div>
+									<div class="errorbox1" style="margin-right:30%; padding-top:2%">{{loginform_error}}
+									</div>
+								 <!-- row -->
+								</form>
+							
+							<div class=""></div>
+					
+				<!--  	</div>
+				</div> -->
+				
+			</div>
+
+		</div>
+		</section>
+	
+        <!-- /.container -->
+   <!--  </section> -->
+
+
+    <!--SIGNUP -->
+   
+    <section id="signup" class="signup bg-primary">
+        <div class="container">
+            <div class="row text-center">
+             <!--     <div class="col-lg-10 col-lg-offset-1"> -->
+                    <h2 style="padding-top:7%">Sign Up</h2>
+                    <hr class="small">
+                	<div class="container-fluid signup_container" ng-controller="signupformcontroller">
+				<div class="">
+					<div class="">
+						<div class="">
+							<div class=""></div>
+							<div class="">
+								<form name="signupform">
+								<div class="row">
+										<div class="col-md-4"></div>
+									<div class="input-group input-group-lg register_textbox">
+										<input type="text" class="form-control" placeholder="Name" name="signupform_name" style="border-radius: 8px;"
+											ng-model="signupform_name" size="40" ng-minlength="3" ng-maxlength="40" required />
+											<br>
+										<div class="error-container" ng-show="signupform.signupform_name.$dirty && signupform.signupform_name.$invalid">
+											<small class="errorbox"
+													ng-show="signupform.signupform_name.$error.required">Name is required</small> <small class="errorbox"
+													ng-show="signupform.signupform_name.$error.minlength">Your
+													Name is required to be at least 3 characters</small> <small
+													class="errorbox"
+													ng-show="signupform.signupform_name.$error.maxlength">Your
+													name cannot be longer than 20 characters</small>
+										</div>
+									
+									</div>
+									</div>
+									<br>
+								<div class="row">
+										<div class="col-md-4"></div>	
+									<div class="input-group input-group-lg  register_textbox">
+										<input type="email" class="form-control" placeholder="E-mail e.g. joesmith@gmail.com " style="border-radius: 8px;"
+											name="signupform_email" size="40" ng-model="signupform_email" required email-unique />
+								
+										<div class="error-container"
+											ng-show="signupform.signupform_email.$dirty && signupform.signupform_email.$invalid">
+											<small class="errorbox"
+											ng-show="signupform.signupform_email.$error.required">Email address is required</small> 
+											<small class="errorbox"
+											ng-show="signupform.signupform_email.$error.email">Email id is invalid</small>
+											<small class="errorbox"
+											ng-show="signupform.signupform_email.$error.unique">That
+											email is already taken, please try another</small>
+										</div>
+								
+									</div>
+								</div>
+									
+									<br>
+									<div class="row">
+										<div class="col-md-4"></div>
+									<div class="input-group input-group-lg  register_textbox">
+										<input type="text" class="form-control" placeholder="Mobile Number" name="signupform_phone"  style="border-radius: 8px;"
+										size="40" ng-model="signupform_phone" ng-minlength="10" ng-maxlength="10" required />
+									
+									<div class="error-container"
+										ng-show="signupform.signupform_phone.$dirty && signupform.signupform_phone.$invalid">
+										<small class="errorbox"
+										ng-show="signupform.signupform_phone.$error.required">Mobile number is required</small> 
+										<small class="errorbox"
+										ng-show="signupform.signupform_phone.$error.minlength">Mobile number is invalid. It should have 10 digits.</small>
+										<small class="errorbox"
+										ng-show="signupform.signupform_phone.$error.maxlength">Mobile number is invalid. It cannot have more than 10 digits.</small>
+									</div>
+									
+									</div>
+									</div>
+									
+									<br>
+									<div class="row">
+										<div class="col-md-4"></div>
+											<div class="input-group input-group-lg  register_textbox">
+											<input type="text" class="form-control" placeholder="Address" name="signupform_address"  style="border-radius: 8px;"
+											size="40" ng-model="signupform_address" required />
+								<div class="error-container" 
+								ng-show="signupform.signupform_address.$dirty && signupform.signupform_address.$invalid">
+														<small class="errorbox"
+														ng-show="signupform.signupform_address.$error.required">Address is required</small> 
+												</div>	
+						
+										</div>
+									</div>
+									<br>
+								
+									<div class="row">
+										<div class="col-md-4"></div>
+											<div class="input-group input-group-lg  register_textbox">
+							<input type="text" class="form-control" ng-minlength="5" ng-maxlength="5" placeholder="Zipcode" name="signupform_zipcode" style="border-radius: 8px;"
+												size="40" ng-model="signupform_zipcode" required>
+										
+												<div class="error-container"
+														ng-show="signupform.signupform_zipcode.$dirty && signupform.signupform_zipcode.$invalid">
+														<small class="errorbox"
+														ng-show="signupform.signupform_zipcode.$error.required">Zipcode is required</small> 
+														<small class="errorbox" ng-show="signupform.signupform_zipcode.$error.minlength">Zipcode is required to have at least 5 digits</small>
+														<small class="errorbox" ng-show="signupform.signupform_zipcode.$error.maxlength">Zipcode can not have more than 5 digits</small>
+										
+												</div>
+						
+									</div>
+									</div>
+									
+									<br>
+									<div class="row" >
+										<div class="col-md-4"></div>
+											<div class="input-group input-group-lg  register_textbox">
+							<input type="text" class="form-control" placeholder="Username" name="signupform_username"  style="border-radius: 8px;"
+										size="40" ng-model="signupform_username" required name-unique  />
+									
+									
+										<div class="error-container"
+												ng-show="signupform.signupform_username.$dirty && signupform.signupform_username.$invalid">
+												<small class="errorbox"
+												ng-show="signupform.signupform_username.$error.required">Username is required</small> 
+												<small class="errorbox"
+												ng-show="signupform.signupform_username.$error.unique">Username is already taken</small> 
+										</div>
+									
+									</div>
+									</div>
+									
+									<br>
+									<div class="row">
+										<div class="col-md-4"></div>
+											<div class="input-group input-group-lg  register_textbox">
+											<input type="password" class="form-control" placeholder="Password" name="signupform_password" style="border-radius: 8px;"
+												size="40" ng-model="signupform_password" required>
+									<div class="error-container"
+											ng-show="signupform.signupform_password.$dirty && signupform.signupform_password.$invalid">
+											<small class="errorbox"
+											ng-show="signupform.signupform_password.$error.required">Password is required</small> 
+									</div>
+									
+									</div>
+									</div>
+									
+								
+									
+									<br>
+									<div class="row">
+										<div class="col-md-4"></div>
+										<div class="input-group input-group-lg register_button">
+											<span class="input-group-btn">
+												<button ng-disabled="signupform.$invalid" class="btn btn-lg btn-default btn-block" type="reset" ng-click="signupform_signup()" size="10" style="border-radius: 8px;width:56%">Register</button>
+											</span>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-4"></div>
+										<div class="errorbox" style="position:relative;padding-top:1%;padding-left:30%;">
+											<ul>
+												<li ng-repeat="error in signupform_error track by $index">{{ error }}</li>
+											</ul>
+										</div>
+										
+										<div class="col-md-4"></div>
+										<div class="successbox" style="position:relative; padding-top:1%;padding-left:42%;">{{signupform_success}}</div>
+									</div>
+									
+									
+								</form>
+							</div>
+							<div class=""></div>
+						</div>
+					</div>
+				</div>
+			</div>
+                    <!-- /.row (nested) -->
+             <!--     </div> -->
+                <!-- /.col-lg-10 -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </section>
+
+	<section id="contact" class="map">
+       <!-- <iframe width="100%" height="100%" frameborder="0" scrolling="no"  marginheight="0" marginwidth="0" src="../images/static_map.png"></iframe>
+       <br /> 
+      <small> 
+      <a href="../images/static_map.png"></a>         
+       </small>
+     </iframe> -->
+     
+     	<div ng-include src="googlemap" onload='getLocation()' id="mapp"></div>
+    </section>
+	 
+	 
+    
+   <!--  <section id="contact" class="map">
+        <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A&amp;output=embed"></iframe>
+        <br />
+        <small>
+            <a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A"></a>
+        </small>
+        </iframe>
+    </section> -->
+
+
+
+    <!-- Footer -->
+    
+    <section id="contactus" class="contactus"></section>
+        <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1 text-center">
+                    <h4><strong>Spartan Bike Share</strong>
+                    </h4>
+                    <p>San Jose State University<br>San Jose, CA 95112</p>
+                    <ul class="list-unstyled">
+                        <li><i class="fa fa-phone fa-fw"></i> (360) 440-6210</li>
+                        <li><i class="fa fa-envelope-o fa-fw"></i>  <a href="mailto:bikeshare273@gmail.com">bikeshare273@gmail.com</a>
+                        </li>
+                    </ul>
+                    <br>
+                    <ul class="list-inline">
+                        <li>
+                            <a href="https://www.facebook.com/pages/Spartan-Bike-Share/387127594779437?skip_nax_wizard=true&ref_type=logout_gear"><i class="fa fa-facebook fa-fw fa-3x"></i></a>
+                        </li>
+                        <li>
+                            <a href="https://twitter.com/bikeshare273"><i class="fa fa-twitter fa-fw fa-3x"></i></a>
+                        </li>
+                       
+                    </ul>
+                    <hr class="small">
+                    <p class="text-muted">Copyright &copy; Spartan Bike Share 2014</p>
+                </div>
+            </div>
+        </div>
+        </footer>
+        </section>
+    
+
+    <!-- jQuery -->
+    <script src="../js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../js/bootstrap.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script>
+    // Closes the sidebar menu
+    $("#menu-close").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+    });
+
+    // Opens the sidebar menu
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+    });
+
+    // Scrolls to the selected menu item on the page
+    $(function() {
+        $('a[href*=#]:not([href=#])').click(function() {
+            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
+
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                if (target.length) {
+                    $('html,body').animate({
+                        scrollTop: target.offset().top
+                    }, 1000);
+                    return false;
+                }
+            }
+        });
+    });
+    
+    </script>
+
+   
+    
+
+</div>
